@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>摘抄 | TogetherAlone</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="以下为摘抄受教育的标志，是你可以不同意一种观点，却能容纳它。——亚里士多德 检验一个人的智力是否上乘，就看他的头脑能否同时容纳两种截然相反的观点，并且无碍于处世——《崩溃》（《the crack-up》） 人类的悲欢并不相通，我只觉得他们吵闹——鲁迅 所有的生活都是合理的，我们没必要相互理解。——刘慈欣《朝闻道》《坍缩》 你有你的路，我有我的路，至于适当的路，正确的路，唯一的路，并不存在——尼采">
+<meta property="og:type" content="website">
+<meta property="og:title" content="摘抄">
+<meta property="og:url" content="https://itogetheralone.github.io/me/index.html">
+<meta property="og:site_name" content="TogetherAlone">
+<meta property="og:description" content="以下为摘抄受教育的标志，是你可以不同意一种观点，却能容纳它。——亚里士多德 检验一个人的智力是否上乘，就看他的头脑能否同时容纳两种截然相反的观点，并且无碍于处世——《崩溃》（《the crack-up》） 人类的悲欢并不相通，我只觉得他们吵闹——鲁迅 所有的生活都是合理的，我们没必要相互理解。——刘慈欣《朝闻道》《坍缩》 你有你的路，我有我的路，至于适当的路，正确的路，唯一的路，并不存在——尼采">
+<meta property="article:published_time" content="2020-03-21T17:58:59.000Z">
+<meta property="article:modified_time" content="2020-03-24T15:20:50.594Z">
+<meta property="article:author" content="TogetherAlone">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternative" href="/atom.xml" title="TogetherAlone" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/https://iTogetherAlone.github.io/img/head.jpg">
+  
+  
+      
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: false,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="https://iTogetherAlone.github.io/img/head.jpg" class="js-avatar">
+            
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">TogetherAlone</a></h1>
+        </hgroup>
+        
+        <p class="header-subtitle">陌尘</p>
+        
+        
+            <form>
+                <input type="text" class="st-default-search-input search" id="local-search-input" placeholder="搜索一下" autocomplete="off">
+            </form>
+            <div id="local-search-result"></div>
+        
+        
+            <script type="text/javascript">
+                (function() {
+                    'use strict';
+                    function getMatchData(keyword, data) {
+                        var matchData = [];
+                        for(var i =0;i<data.length;i++){
+                            if(data[i].title.toLowerCase().indexOf(keyword)>=0) 
+                                matchData.push(data[i])
+                        }
+                        return matchData;
+                    }
+                    var $input = $('#local-search-input');
+                    var $resultContent = $('#local-search-result');
+                    $input.keyup(function(){
+                        $.ajax({
+                            url: '/search.json',
+                            dataType: "json",
+                            success: function( json ) {
+                                var str='<ul class=\"search-result-list\">';                
+                                var keyword = $input.val().trim().toLowerCase();
+                                $resultContent.innerHTML = "";
+                                if ($input.val().trim().length <= 0) {
+                                    $resultContent.empty();
+                                    $('#switch-area').show();
+                                    return;
+                                }
+                                var results = getMatchData(keyword, json);
+                                if(results.length === 0){
+                                    $resultContent.empty();
+                                    $('#switch-area').show();
+                                    return;
+                                } 
+                                for(var i =0; i<results.length; i++){
+                                    str += "<li><a href='"+ results[i].url +"' class='search-result-title'>"+ results[i].title +"</a></li>";
+                                }
+                                str += "</ul>";
+                                $resultContent.empty();
+                                $resultContent.append(str);
+                                $('#switch-area').hide();
+                            }
+                        });
+                    });
+                })();
+            </script>
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a  href="/">主页</a></li>
+                        
+                            <li><a  href="/me">摘抄</a></li>
+                        
+                            <li><a  href="/archives">时光机</a></li>
+                        
+                            <li><a  href="/tags">标签馆</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl github"  target="_blank" href="https://github.com/iTogetherAlone" title="github">github</a>
+                            
+                                <a class="fl rss"  target="_blank" href="/atom.xml" title="rss">rss</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/%E5%AE%B6%E4%B8%AD/" style="font-size: 20px;">家中</a> <a href="/tags/%E6%80%9D%E6%83%B3/" style="font-size: 15px;">思想</a> <a href="/tags/%E6%8A%80%E6%9C%AF/" style="font-size: 10px;">技术</a>
+                    </div>
+                </section>
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="https://www.w3school.com.cn/">w3school</a>
+                    
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">一个对成为网络安全大佬充满憧憬的年轻人————仰望星空的人</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">TogetherAlone</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/https://iTogetherAlone.github.io/img/head.jpg" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">TogetherAlone</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">陌尘</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/me">摘抄</a></li>
+                
+                    <li><a href="/archives">时光机</a></li>
+                
+                    <li><a href="/tags">标签馆</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="github" target="_blank" href="https://github.com/iTogetherAlone" title="github">github</a>
+                    
+                        <a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/me/index.html" class="article-date">
+      <time datetime="2020-03-21T17:58:59.000Z" itemprop="datePublished">2020-03-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      摘抄
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <style>
+    .article-meta {
+        display: none;
+    }
+    #container .article .article-title {
+        padding-right: 0;
+    }
+    .article-header {
+        padding: 0;
+        padding-top: 26px;
+        border-left: none;
+        text-align: center;
+    }
+    .article-header:hover {
+        border-left: none;
+    }
+    .article-title {
+        font-size: 1.6em
+    }
+    .article-meta {
+        display: none;
+    }
+    .article-entry hr {
+        margin: 0;
+    }
+    #container .article-info-post.article-info {
+      display: none;
+      }
+    #container .article .article-title {
+    padding: 0;
+    }
+</style>
+
+
+          
+        <h3 id="以下为摘抄"><a href="#以下为摘抄" class="headerlink" title="以下为摘抄"></a><strong>以下为摘抄</strong></h3><p>受教育的标志，是你可以不同意一种观点，却能容纳它。<br>——亚里士多德</p>
+<p>检验一个人的智力是否上乘，就看他的头脑能否同时容纳两种截然相反的观点，并且无碍于处世<br>——《崩溃》（《the crack-up》）</p>
+<p>人类的悲欢并不相通，我只觉得他们吵闹<br>——鲁迅</p>
+<p>所有的生活都是合理的，我们没必要相互理解。<br>——刘慈欣《朝闻道》《坍缩》</p>
+<p>你有你的路，我有我的路，至于适当的路，正确的路，唯一的路，并不存在<br>——尼采</p>
+<p>实在来说，没有知识的人总爱议论</p>
+<p>无法做出决策的人，或欲望过大，或觉悟不足<br>——笛卡尔</p>
+<p>存在既合理</p>
+<p>世界上真正的悲剧不是正确和错误之间的冲突，而是两种正确之间的冲突</p>
+<p>人类从历史中学到的唯一教训，就是人类没有从历史中没有吸取任何教训</p>
+<p>只有那些躺在坑里从不仰望高处的人，才会没有出头之日<br>——黑格尔</p>
+<p>人生最遗憾的，莫过于轻易放弃了不该放弃的，固执地坚持不该坚持的<br>——柏拉图</p>
+<p>发怒，是用别人的错误惩罚自己</p>
+<p>毒害年轻人最好的方法，就是让他们尊重和自己想法一样的人，而不是尊重和自己意见相左的人</p>
+<p>唯有戏子才能唤起群众巨大的兴奋<br>——康德</p>
+<hr>
+<h2 id="罗素"><a href="#罗素" class="headerlink" title="罗素"></a>罗素</h2><p>乞丐并不会嫉妒百万富翁，但是他肯定会嫉妒收入更高的乞丐</p>
+<p>不用盲目地崇拜任何权威，因为你总能找到相反的权威</p>
+<p>这个世界的问题在于聪明人充满疑惑，而傻子们坚信不疑</p>
+<p>幸福的秘诀是：尽量扩大你的兴趣范围，对感兴趣的人和物尽可能友善</p>
+<p>人的情绪起落与他对事实感知成反比的，比对事实了解得越少，就越容易动感情。</p>
+<p>不要为自己持有的独特的看法而感到害怕，因为我们现在所接受的常识都曾是独特看法</p>
+<p>父亲们最根本的缺点，在于想要自己的孩子为自己争光</p>
+<p>人之所以有道德，是因为受到的诱惑还不够大</p>
+<p>许多人宁愿死，也不愿思考，事实上他们也确实至死也没有思考</p>
+<p>过份的自信很容易使人产生毁灭性的傲慢</p>
+<p>传统的人看到背离传统的行为就大发雷霆，主要是因为他们把这种背离当作对他们的批评</p>
+<p>日常生活中的知识有三种缺陷：自以为是 含混 和自相矛盾</p>
+<p>青年时期是豁达的时期，应该利用这个时期养成自己豁达的性格</p>
+<p>通过认识到那些引起焦虑的事物并不重要可以缓解大部分忧虑</p>
+<p>幻觉不是你的错，在幻觉中做决定，就是你的不对了</p>
+<p>那些忘记善恶，只顾追求事实的人，与那些因欲望扭曲事实，只看到自己想看的东西的人相比，更容易达成善举</p>
+<p>一个明智的人决不会因别人有别的东西，就对自己的东西不感兴趣</p>
+<p>凡事不要抱着绝对肯定的态度</p>
+<p>宿命论是那些缺乏意志力的弱者的借口</p>
+<hr>
+<hr>
+<h2 id="鲁迅"><a href="#鲁迅" class="headerlink" title="鲁迅"></a>鲁迅</h2><p>猛兽总是独行，牛羊才成群结队</p>
+<p>面具戴太久，就会长到脸上，再想揭下来，除非伤筋动骨扒皮。</p>
+<p>小的时候，不把他当人，大了以后也做不了人。</p>
+<p>悲剧将人生的有价值的东西毁灭给人看，喜剧将那无价值的撕破给人看。</p>
+<p>哀其不幸，怒其不争。</p>
+<p>改造自己，总比禁止别人来得难。</p>
+<p>友谊是两颗心的真诚相待，而不是一颗心对另一颗心的敲打。</p>
+<p>时间就像海绵里的水，只要愿挤，总还是有的。</p>
+<p>希望本无所谓有，也无所谓无，这就像地上的路，其实地上本没有路，走的人多了，也便成了路。</p>
+<p>从来如此，便对吗？</p>
+<p>其实先驱者本是容易变成绊脚石的。</p>
+<p>假使做事要面面顾到，那就什么事都不能做了。</p>
+<p>时间就是性命。无端的空耗别人的时间，其实是无异于谋财害命的。</p>
+<p>不在沉默中爆发，就在沉默中灭亡。</p>
+<p>怀疑并不是缺点。总是疑，而并不下断语，这才是缺点。</p>
+<p>自由固不是钱所买到的，但能够为钱而卖掉。</p>
+<p>真的猛士，敢于直面惨淡的人生，敢于正视淋漓的鲜血。</p>
+<p>走自己的路，让别人去说。</p>
+<p>哈儿狗往往比它的主人更严厉。</p>
+<p>激烈得快的，也平和的快，甚至于也颓废的快。</p>
+<hr>
+<hr>
+<h2 id="维特根斯坦"><a href="#维特根斯坦" class="headerlink" title="维特根斯坦"></a>维特根斯坦</h2><p>撒谎对自己有利的时候，为什么要说实话呢？</p>
+<p>凡可说的，皆无意义。凡有有意义的，皆不得不以荒唐的语言传递其意义</p>
+<p>从不做蠢事的人，也永远不会有任何聪明之举</p>
+<p>除了自然，不要把他人的例子当做你的指南</p>
+<p>这个世界不可能大家都喜欢我，我也不需要每个人都喜欢我，我只能说很多人还不了解我</p>
+<p>想让别人真正爱你，只有让自己成为值得爱的人</p>
+<p>你不能解决问题，你就会成为问题</p>
+<p>难道人们进行怀疑就不需要提供理由吗</p>
+<hr>
+<hr>
+<h2 id="培根"><a href="#培根" class="headerlink" title="培根"></a>培根</h2><p>无论你怎样地表示愤怒，都不要做出任何无法挽回的事来</p>
+<p>毫无理想而又优柔寡断是一种可悲的心理</p>
+<p>真正可怕的，并是那种人人都难以避免的一念之差，而是那种深入习俗，盘踞人心深处的谬误和偏见</p>
+<p>难道人类非得变成经济动物，只知道专注于膨胀的胃和银行户头吗？</p>
+<p>智者创造机会，而不是等待机会</p>
+<p>所有要爬到高位的人，都要经过迂回曲折的阶梯</p>
+<p>使人们宁愿相信谬误，而不愿热爱真理的原因，不仅由于探索真理是艰苦的，而且由于谬误更能迎合人类某些恶劣的天性</p>
+<hr>
+<p>把一个人培养成傻子的最好方式就是赞同他的一切观点。</p>
+<p>你看到公交车.上一个浓妆艳抹的女孩不停的对着镜子检查妆容，你心生厌恶，可你不知道实际.上她化妆的次数一只手都能数的过来，她是要去参加那个曾经她深爱的人的婚礼，<br>你看到领导又去乡下看望老人，你心想终于来了一个好领导，可是你却不知道他面无表情的收下别人送的一盒盒伪装成礼物的钱<br>你看到的纯情妹子也许晚_上在夜店里衣着暴露酒量惊人<br>你看到平时大大咧咧简单粗暴的女汉子活的疯疯癫癫好像不会伤心一样，可是你不知道深夜她一个人躲在被窝里默默哭泣<br>你眼里罪恶的班主任严厉到平时看到你就要训你一一顿，可是你不知道她多么怕你自毁前程，恨不得把你当成自己的孩子，在大冬天里走了多少关系，就为了多争取几个名额，<br>这世上多的是你不知道的事，别把谁想的太好，也别把谁看的太坏，</p>
+
+      
+      
+    </div>
+    
+  </div>
+  
+    
+
+
+  
+</article>
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+        <section id="comments">
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'swing'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+</section>
+    
+
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2020 TogetherAlone
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="http://bestwing.me" target="_blank">Sw'blog</a> by Swing
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >海贼到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 49;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+    <script type="text/javascript">
+      window.onload = function(){
+        document.getElementById("search").onclick = function(){
+            console.log("search")
+            search();
+        }
+      }
+      function search(){
+        (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+        (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+        e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+        })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+        _st('install','A1Pz-LKMXbrzcFg2FWi6','2.0.0');
+      }
+    </script>
+
+  </div>
+</body>
+</html>
