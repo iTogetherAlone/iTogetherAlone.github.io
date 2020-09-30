@@ -3,19 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>我们没必要相互理解 | TogetherAlone</title>
+  <title>基于Zabbix的Linux自动化监控系统简单配置 | TogetherAlone</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="我们没必要相互理解转载自微信公众号【半佛仙人】，ID：banfoSB 有时候我觉得在网上和人争论到面红耳赤是一件比较魔怔的事情。 因为大家最大的分歧其实不是对错，实际上大家对于对错的认知是相同的。 真正的分歧点在于，对于事件本身的定义以及对于事件阈值的容忍度。 举个例子，可能不太恰当。 约炮到底是对还是错？ 你说对也可以，错也可以。 实际上这个问题可以被拆分成很多的问题。 要如何定义约炮？双方都是">
+  <meta name="description" content="步骤配置centos7主机网卡配置为NAT，进入系统修改网卡配置为自动，修改主机名为s1 配置s1的yum源和zabbix源为aliyun源 1234567891011121314151617181920212223242526272829303132333435配置阿里云zabbix yum源rpm -ivh https:&#x2F;&#x2F;mirrors.aliyun.co">
 <meta property="og:type" content="article">
-<meta property="og:title" content="我们没必要相互理解">
-<meta property="og:url" content="https://itogetheralone.github.io/2020/03/24/%E6%88%91%E4%BB%AC%E6%B2%A1%E5%BF%85%E8%A6%81%E7%9B%B8%E4%BA%92%E7%90%86%E8%A7%A3/index.html">
+<meta property="og:title" content="基于Zabbix的Linux自动化监控系统简单配置">
+<meta property="og:url" content="https://itogetheralone.github.io/2020/09/23/zabbix/index.html">
 <meta property="og:site_name" content="TogetherAlone">
-<meta property="og:description" content="我们没必要相互理解转载自微信公众号【半佛仙人】，ID：banfoSB 有时候我觉得在网上和人争论到面红耳赤是一件比较魔怔的事情。 因为大家最大的分歧其实不是对错，实际上大家对于对错的认知是相同的。 真正的分歧点在于，对于事件本身的定义以及对于事件阈值的容忍度。 举个例子，可能不太恰当。 约炮到底是对还是错？ 你说对也可以，错也可以。 实际上这个问题可以被拆分成很多的问题。 要如何定义约炮？双方都是">
-<meta property="article:published_time" content="2020-03-24T14:47:14.000Z">
-<meta property="article:modified_time" content="2020-03-24T14:53:38.547Z">
+<meta property="og:description" content="步骤配置centos7主机网卡配置为NAT，进入系统修改网卡配置为自动，修改主机名为s1 配置s1的yum源和zabbix源为aliyun源 1234567891011121314151617181920212223242526272829303132333435配置阿里云zabbix yum源rpm -ivh https:&#x2F;&#x2F;mirrors.aliyun.co">
+<meta property="article:published_time" content="2020-09-23T14:00:00.000Z">
+<meta property="article:modified_time" content="2020-09-29T13:21:30.753Z">
 <meta property="article:author" content="TogetherAlone">
-<meta property="article:tag" content="家中">
-<meta property="article:tag" content="思想">
+<meta property="article:tag" content="技术">
+<meta property="article:tag" content="学校">
+<meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="TogetherAlone" type="application/atom+xml">
@@ -53,7 +54,10 @@
           open_in_new: false
       }
   </script>
-<meta name="generator" content="Hexo 4.2.0"></head>
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="\assets\css\APlayer.min.css" class="aplayer-style-marker">
+<script src="\assets\js\APlayer.min.js" class="aplayer-script-marker"></script>
+<script src="\assets\js\Meting.min.js" class="meting-script-marker"></script>
+</head>
 <body>
   <div id="container">
     <div class="left-col">
@@ -263,11 +267,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-我们没必要相互理解" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-zabbix" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2020/03/24/%E6%88%91%E4%BB%AC%E6%B2%A1%E5%BF%85%E8%A6%81%E7%9B%B8%E4%BA%92%E7%90%86%E8%A7%A3/" class="article-date">
-      <time datetime="2020-03-24T14:47:14.000Z" itemprop="datePublished">2020-03-24</time>
+      <a href="/2020/09/23/zabbix/" class="article-date">
+      <time datetime="2020-09-23T14:00:00.000Z" itemprop="datePublished">2020-09-23</time>
 </a>
     </div>
   
@@ -280,7 +284,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      我们没必要相互理解
+      基于Zabbix的Linux自动化监控系统简单配置
     </h1>
   
 
@@ -289,13 +293,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/%E8%BD%AC%E8%BD%BD/">转载</a>
+    <a class="article-category-link" href="/categories/%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/">系统管理</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AE%B6%E4%B8%AD/" rel="tag">家中</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%80%9D%E6%83%B3/" rel="tag">思想</a></li></ul>
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%A6%E6%A0%A1/" rel="tag">学校</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag">技术</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -305,40 +309,80 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="我们没必要相互理解"><a href="#我们没必要相互理解" class="headerlink" title="我们没必要相互理解"></a>我们没必要相互理解</h2><p><strong>转载自微信公众号【半佛仙人】，ID：banfoSB</strong></p>
-<p>有时候我觉得在网上和人争论到面红耳赤是一件比较魔怔的事情。</p>
-<p>因为大家最大的分歧其实不是对错，实际上大家对于对错的认知是相同的。</p>
-<p>真正的分歧点在于，对于事件本身的定义以及对于事件阈值的容忍度。</p>
-<p>举个例子，可能不太恰当。</p>
-<p>约炮到底是对还是错？</p>
-<p>你说对也可以，错也可以。</p>
-<p>实际上这个问题可以被拆分成很多的问题。</p>
-<p>要如何定义约炮？双方都是单身，来一发有没有错？</p>
-<p>自身单身，有需求，怎么办？难道去嫖么？</p>
-<p>约炮的过程中不知道对方是否单身怎么办？</p>
-<p>大家你情我愿算不算不道德？</p>
-<p>不以破坏对方家庭为目的的约炮算不算素炮？</p>
-<p>如果能把这些定义全都厘清，并且达成一致，其实也没啥好吵的了。</p>
-<p>类似的问题可以提出非常多，那么问题来了，谁掌握了这些问题的解释权呢？<br>没人有解释权，只有当事人有解释权。</p>
-<p>但是当事人不会讲话。</p>
-<p>实际上争论双方往往会依据自身的想法出发来把自己的概念强加于他人。</p>
-<p>这本质上，其实就是大家的三观不和。</p>
-<p>而三观的形成，受制于成长环境，受教育环境，工作环境，经济条件，人际关系，屁股位置等等一切变量都不同，所以有不同的观点简直是再正常不过的事情，没必要说服对方。</p>
-<p>我的人生信条，在他的眼里完全可以是一堆狗屁；</p>
-<p>他的人生理想，在我眼里完全是愚不可及。</p>
-<p>但我们都是合理的，因为我们都是基于自身的三观对事情做出了解释。</p>
-<p>所以大家没必要相互理解，因为客观上就是理解不了啊。</p>
-<p>我真的理解不了很多人追星追到脑子瓦特了，但是很多人也理解不了我这种有钱不买奢侈品是不是沙雕。</p>
-<p>从他的角度出发，他永远是对的，因为他看到的确实如此；</p>
-<p>从我的角度，我永远是对的。</p>
-<p>而且说实在的，我也永远不可能真的站在他的角度，我也不会为他的后果负责，所以有啥好争的。</p>
-<p>有这个功夫我去写广告不好么。</p>
-<p>大家各自表述观点，丢出来，就好了，别乱扣帽子。</p>
-<p>能做到互相体谅（不直接人身攻击就算相互体谅了），但各持各的观点，各过各的生活，就更好了。</p>
-<p>所以有时候我也特别认可大佬的一句话。</p>
-<p>求同存异。</p>
-<p>这真的是一种美德。</p>
-<p><strong>转载自微信公众号【半佛仙人】，ID：banfoSB</strong><br><strong>侵删</strong></p>
+        
+    <div id="aplayer-NdrIiwfW" class="aplayer aplayer-tag-marker meting-tag-marker"
+         data-id="4941417121" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"
+    ></div>
+
+
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><p>配置centos7主机网卡配置为NAT，进入系统修改网卡配置为自动，修改主机名为s1</p>
+<p>配置s1的yum源和zabbix源为aliyun源</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">配置阿里云zabbix yum源</span><br><span class="line">rpm -ivh https:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;zabbix&#x2F;zabbix&#x2F;3.0&#x2F;rhel&#x2F;7&#x2F;x86_64&#x2F;zabbix-release-3.0-1.el7.noarch.rpm</span><br><span class="line"></span><br><span class="line">下载repo文件</span><br><span class="line">wget http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;repo&#x2F;Centos-7.repo</span><br><span class="line"></span><br><span class="line">执行下面步骤生成缓存</span><br><span class="line">yum makecache</span><br><span class="line"></span><br><span class="line">打开 &#x2F;etc&#x2F;yum.repos.d&#x2F;zabbix.repo 将下列两行内容覆盖掉原来的内容</span><br><span class="line">[zabbix]</span><br><span class="line">name&#x3D;Zabbix Official Repository - \$basearch</span><br><span class="line">baseurl&#x3D;https:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;zabbix&#x2F;zabbix&#x2F;3.0&#x2F;rhel&#x2F;7&#x2F;\$basearch&#x2F;        #就是这一行</span><br><span class="line">gpgcheck&#x3D;1</span><br><span class="line">gpgkey&#x3D;file:&#x2F;&#x2F;&#x2F;etc&#x2F;pki&#x2F;rpm-gpg&#x2F;RPM-GPG-KEY-ZABBIX-A14FE591</span><br><span class="line">  </span><br><span class="line">[zabbix-non-supported]</span><br><span class="line">name&#x3D;Zabbix Official Repository non-supported - \$basearch</span><br><span class="line">baseurl&#x3D;https:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;zabbix&#x2F;non-supported&#x2F;rhel&#x2F;7&#x2F;\$basearch&#x2F;   #就是这一行</span><br><span class="line">enabled&#x3D;1</span><br><span class="line">gpgkey&#x3D;file:&#x2F;&#x2F;&#x2F;etc&#x2F;pki&#x2F;rpm-gpg&#x2F;RPM-GPG-KEY-ZABBIX</span><br><span class="line">gpgcheck&#x3D;1</span><br><span class="line"></span><br><span class="line">在控制台添加gpgkey</span><br><span class="line">curl https:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;zabbix&#x2F;RPM-GPG-KEY-ZABBIX-A14FE591 \ -o &#x2F;etc&#x2F;pki&#x2F;rpm-gpg&#x2F;RPM-GPG-KEY-ZABBIX-A14FE591</span><br><span class="line">curl https:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;zabbix&#x2F;RPM-GPG-KEY-ZABBIX \ -o &#x2F;etc&#x2F;pki&#x2F;rpm-gpg&#x2F;RPM-GPG-KEY-ZABBIX</span><br><span class="line"></span><br><span class="line">执行更新源命令</span><br><span class="line">yum makecache -y</span><br><span class="line"></span><br><span class="line">再安装</span><br><span class="line">yum -y install zabbix-server-mysql zabbix-web-mysql zabbix-get</span><br><span class="line"></span><br><span class="line">后续客户端也要执行上述过程才可以安装</span><br><span class="line">yum -y install zabbix-agent</span><br></pre></td></tr></table></figure>
+
+<p>克隆s1主机为a1，并修改主机名为a1</p>
+<p>安装mariadb，php，httpd等软件包</p>
+<blockquote>
+<p>yum -y install mariadb mariadb-server php php-mysql httpd</p>
+</blockquote>
+<p>启动httpd服务，并打开测试页</p>
+<blockquote>
+<p>systemctl start httpd</p>
+</blockquote>
+<p>启动mariadb数据库，并初始化数据库，设置root密码</p>
+<blockquote>
+<p>systemctl start mariadb<br>mysql_secure_installation</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">#输入数据库中root用户密码（默认为空，按回车即可）</span><br><span class="line">Enter current password for root (enter for none): </span><br><span class="line">OK, successfully used password, moving on...</span><br><span class="line">#是否设置root密码？是</span><br><span class="line">Set root password? [Y&#x2F;n] y</span><br><span class="line">New password: </span><br><span class="line">Re-enter new password: </span><br><span class="line">Password updated successfully!</span><br><span class="line">Reloading privilege tables..</span><br><span class="line"> ... Success!</span><br><span class="line">#是否移除匿名用户？是</span><br><span class="line">Remove anonymous users? [Y&#x2F;n] y</span><br><span class="line"> ... Success!</span><br><span class="line"></span><br><span class="line">#是否禁止root用户远程登陆？是（亦可按回车跳过，保留默认设置）</span><br><span class="line">Disallow root login remotely? [Y&#x2F;n] n</span><br><span class="line">... skipping.</span><br><span class="line"></span><br><span class="line">#是否删除测试用的数据库和权限？是</span><br><span class="line">Remove test database and access to it? [Y&#x2F;n] y</span><br><span class="line"> - Dropping test database...</span><br><span class="line"> ... Success!</span><br><span class="line"> - Removing privileges on test database...</span><br><span class="line"> ... Success!</span><br><span class="line"></span><br><span class="line">#重新加载权限表？是</span><br><span class="line">Reload privilege tables now? [Y&#x2F;n] y</span><br><span class="line"> ... Success!</span><br></pre></td></tr></table></figure>
+
+<p>创建数据库和登录数据库的用户及密码，并且设置用户登录数据库的权限，最后测试用户登录数据库显示创建的数据库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">（1）创建Zabbix数据库</span><br><span class="line"></span><br><span class="line">mysql -uroot –p123456 -e &quot;create database zabbix default character set utf8 collate utf8_bin;&quot;</span><br><span class="line"></span><br><span class="line">（2）创建Zabbix用户</span><br><span class="line"></span><br><span class="line">useradd zabbix</span><br><span class="line">passwd zabbix</span><br><span class="line">mysql -uroot –p123456 -e &quot;grant all on zabbix.*to &#39;zabbix&#39;@&#39;%&#39; identified by &#39;zabbix&#39;;&quot;</span><br><span class="line"></span><br><span class="line">（3）测试Zabbix用户</span><br><span class="line"></span><br><span class="line">mysql -uzabbix –pzabbix	#使用zabbix登陆数据库</span><br></pre></td></tr></table></figure>
+
+<p>安装Zabbix Server端等各个软件包</p>
+<blockquote>
+<p>yum -y install zabbix-server-mysql zabbix-web-mysql zabbix-get </p>
+</blockquote>
+<p>导入表结构</p>
+<blockquote>
+<p>cd /usr/share/doc/zabbix-server-mysql-3.0.31/<br>zcat create.sql.gz | mysql -uroot –p123456 zabbix</p>
+</blockquote>
+<p>修改配置文件zabbix_server.conf和修改配置文件zabbix.conf</p>
+<p>使用Vi编辑器打开该文件<strong>/etc/zabbix/zabbix_server.conf</strong>，按照如下信息对其中的相应选项进行设置：</p>
+<p><strong>DBHost=localhost<br>DBName=zabbix<br>DBUser=zabbix<br>DBPassword=zabbix</strong></p>
+<p>修改配置文件zabbix.conf</p>
+<p>使用Vi编辑器打开该文件<strong>/etc/httpd/conf.d/zabbix.conf</strong></p>
+<blockquote>
+<p>php_value date.timezone Asia/Shanghai </p>
+</blockquote>
+<p>启动zabbix-server并重启httpd服务</p>
+<blockquote>
+<p>systemctl start zabbix-server<br>systemctl restart httpd</p>
+</blockquote>
+<p>配置zabbix的web页面</p>
+<p>在主机s1和克隆主机a1上安装zabbix-agent</p>
+<blockquote>
+<p>yum -y install zabbix-agent</p>
+</blockquote>
+<p>配置两台主机的zabbix-agent文件并启动两台主机的zabbix-agent服务<br>打开<strong>etc/zabbix/zabbix_agentd.conf<br>修改server=192.168.153.128<br>Serverative=192.168.153.128<br>Hostname=192.168.153.129</strong></p>
+<p>重启：</p>
+<blockquote>
+<p>systemctl start zabbix-agent</p>
+</blockquote>
+<p>开启防火墙端口</p>
+<blockquote>
+<p>firewall-cmd –zone=public –add-port=10050/tcp –permanent</p>
+</blockquote>
+<p>关闭SELinux</p>
+<p>在主机s1测试zabbix连通性</p>
+<blockquote>
+<p>zabbix_get -s 192.168.255.158 -k system.uname</p>
+</blockquote>
+<p>登录zabbix的web管理页，创建一个新用户</p>
+<p>创建两个主机</p>
+<p>创建一个item</p>
+<p>创建一个Trigger</p>
+<p>创建一个Action</p>
+<p>浏览Monitoring→Events，过滤器中选择触发器“CPUStatus”，显示内容</p>
+<p>将a1主机绑定任意template</p>
 
       
       
@@ -348,13 +392,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2020/03/24/%E6%88%91%E4%BB%AC%E6%B2%A1%E5%BF%85%E8%A6%81%E7%9B%B8%E4%BA%92%E7%90%86%E8%A7%A3/">我们没必要相互理解</a></p>
+        <p><span>本文标题:</span><a href="/2020/09/23/zabbix/">基于Zabbix的Linux自动化监控系统简单配置</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 TogetherAlone 的个人博客">TogetherAlone</a></p>
-        <p><span>发布时间:</span>2020年03月24日 - 22时47分</p>
-        <p><span>最后更新:</span>2020年03月24日 - 22时53分</p>
+        <p><span>发布时间:</span>2020年09月23日 - 22时00分</p>
+        <p><span>最后更新:</span>2020年09月29日 - 21时21分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2020/03/24/%E6%88%91%E4%BB%AC%E6%B2%A1%E5%BF%85%E8%A6%81%E7%9B%B8%E4%BA%92%E7%90%86%E8%A7%A3/" title="我们没必要相互理解">https://itogetheralone.github.io/2020/03/24/%E6%88%91%E4%BB%AC%E6%B2%A1%E5%BF%85%E8%A6%81%E7%9B%B8%E4%BA%92%E7%90%86%E8%A7%A3/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://itogetheralone.github.io/2020/03/24/%E6%88%91%E4%BB%AC%E6%B2%A1%E5%BF%85%E8%A6%81%E7%9B%B8%E4%BA%92%E7%90%86%E8%A7%A3/　　作者: TogetherAlone" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2020/09/23/zabbix/" title="基于Zabbix的Linux自动化监控系统简单配置">https://itogetheralone.github.io/2020/09/23/zabbix/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://itogetheralone.github.io/2020/09/23/zabbix/　　作者: TogetherAlone" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -367,18 +411,18 @@
 
 <nav id="article-nav">
   
-    <a href="/2020/03/24/%E5%8A%AA%E5%8A%9B%E5%B0%B1%E4%BC%9A%E6%88%90%E5%8A%9F/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/09/24/XML%E5%AD%A6%E4%B9%A0/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          “努力就会成功”
+          XML基础学习
         
       </div>
     </a>
   
   
-    <a href="/2020/03/22/markdown/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">记Markdown语言的学习与总结</div>
+    <a href="/2020/03/24/%E5%8A%AA%E5%8A%9B%E5%B0%B1%E4%BC%9A%E6%88%90%E5%8A%9F/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">“努力就会成功”</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -389,7 +433,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#我们没必要相互理解"><span class="toc-number">1.</span> <span class="toc-text">我们没必要相互理解</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#步骤"><span class="toc-number">1.</span> <span class="toc-text">步骤</span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -458,13 +502,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2020/03/24/%E5%8A%AA%E5%8A%9B%E5%B0%B1%E4%BC%9A%E6%88%90%E5%8A%9F/" title="上一篇: “努力就会成功”">
+            <a href="/2020/09/24/XML%E5%AD%A6%E4%B9%A0/" title="上一篇: XML基础学习">
                 <i class="fa fa-angle-left"></i>
             </a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2020/03/22/markdown/" title="下一篇: 记Markdown语言的学习与总结">
+            <a href="/2020/03/24/%E5%8A%AA%E5%8A%9B%E5%B0%B1%E4%BC%9A%E6%88%90%E5%8A%9F/" title="下一篇: “努力就会成功”">
                 <i class="fa fa-angle-right"></i>
             </a>
         

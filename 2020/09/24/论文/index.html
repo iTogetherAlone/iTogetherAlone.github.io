@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>WEB渗透测试的简单分析 | TogetherAlone</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="分类 TP393.08  论文选题类型   应用研究            摘  要随着网络技术的发展，人们的生活发生了改变。然而，web技术带来的安全问题也面临着前所未有的挑战。本文提出了几种常见的、危害较大的web网络安全问题和渗透测试方法，为确保web网络安全提供了思路。对于业务系统，从网站的各个方面，渗透测试服务包括信息收集和漏洞检测与利用，内网渗透和总结报告。、渗透测试员">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WEB渗透测试的简单分析">
+<meta property="og:url" content="https://itogetheralone.github.io/2020/09/24/%E8%AE%BA%E6%96%87/index.html">
+<meta property="og:site_name" content="TogetherAlone">
+<meta property="og:description" content="分类 TP393.08  论文选题类型   应用研究            摘  要随着网络技术的发展，人们的生活发生了改变。然而，web技术带来的安全问题也面临着前所未有的挑战。本文提出了几种常见的、危害较大的web网络安全问题和渗透测试方法，为确保web网络安全提供了思路。对于业务系统，从网站的各个方面，渗透测试服务包括信息收集和漏洞检测与利用，内网渗透和总结报告。、渗透测试员">
+<meta property="article:published_time" content="2020-09-24T14:00:00.000Z">
+<meta property="article:modified_time" content="2020-09-29T12:39:03.915Z">
+<meta property="article:author" content="TogetherAlone">
+<meta property="article:tag" content="技术">
+<meta property="article:tag" content="学校">
+<meta property="article:tag" content="网络安全">
+<meta property="article:tag" content="web渗透">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternative" href="/atom.xml" title="TogetherAlone" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//img/head.jpg">
+  
+  
+      
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="\assets\css\APlayer.min.css" class="aplayer-style-marker">
+<script src="\assets\js\APlayer.min.js" class="aplayer-script-marker"></script>
+<script src="\assets\js\Meting.min.js" class="meting-script-marker"></script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/head.jpg" class="js-avatar">
+            
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">TogetherAlone</a></h1>
+        </hgroup>
+        
+        <p class="header-subtitle">陌尘</p>
+        
+        
+            <form>
+                <input type="text" class="st-default-search-input search" id="local-search-input" placeholder="搜索一下" autocomplete="off">
+            </form>
+            <div id="local-search-result"></div>
+        
+        
+            <script type="text/javascript">
+                (function() {
+                    'use strict';
+                    function getMatchData(keyword, data) {
+                        var matchData = [];
+                        for(var i =0;i<data.length;i++){
+                            if(data[i].title.toLowerCase().indexOf(keyword)>=0) 
+                                matchData.push(data[i])
+                        }
+                        return matchData;
+                    }
+                    var $input = $('#local-search-input');
+                    var $resultContent = $('#local-search-result');
+                    $input.keyup(function(){
+                        $.ajax({
+                            url: '/search.json',
+                            dataType: "json",
+                            success: function( json ) {
+                                var str='<ul class=\"search-result-list\">';                
+                                var keyword = $input.val().trim().toLowerCase();
+                                $resultContent.innerHTML = "";
+                                if ($input.val().trim().length <= 0) {
+                                    $resultContent.empty();
+                                    $('#switch-area').show();
+                                    return;
+                                }
+                                var results = getMatchData(keyword, json);
+                                if(results.length === 0){
+                                    $resultContent.empty();
+                                    $('#switch-area').show();
+                                    return;
+                                } 
+                                for(var i =0; i<results.length; i++){
+                                    str += "<li><a href='"+ results[i].url +"' class='search-result-title'>"+ results[i].title +"</a></li>";
+                                }
+                                str += "</ul>";
+                                $resultContent.empty();
+                                $resultContent.append(str);
+                                $('#switch-area').hide();
+                            }
+                        });
+                    });
+                })();
+            </script>
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a  href="/">主页</a></li>
+                        
+                            <li><a  href="/me">摘抄</a></li>
+                        
+                            <li><a  href="/archives">时光机</a></li>
+                        
+                            <li><a  href="/tags">标签馆</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl github"  target="_blank" href="https://github.com/iTogetherAlone" title="github">github</a>
+                            
+                                <a class="fl rss"  target="_blank" href="/atom.xml" title="rss">rss</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/XML/" style="font-size: 10px;">XML</a> <a href="/tags/web%E6%B8%97%E9%80%8F/" style="font-size: 10px;">web渗透</a> <a href="/tags/%E5%AD%A6%E6%A0%A1/" style="font-size: 16.67px;">学校</a> <a href="/tags/%E5%AE%B6%E4%B8%AD/" style="font-size: 16.67px;">家中</a> <a href="/tags/%E6%80%9D%E6%83%B3/" style="font-size: 13.33px;">思想</a> <a href="/tags/%E6%8A%80%E6%9C%AF/" style="font-size: 20px;">技术</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" style="font-size: 10px;">网络安全</a>
+                    </div>
+                </section>
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="https://www.w3school.com.cn/">w3school</a>
+                    
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">一个对成为网络安全大佬充满憧憬的年轻人————仰望星空的人</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">TogetherAlone</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="//img/head.jpg" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">TogetherAlone</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">陌尘</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/me">摘抄</a></li>
+                
+                    <li><a href="/archives">时光机</a></li>
+                
+                    <li><a href="/tags">标签馆</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="github" target="_blank" href="https://github.com/iTogetherAlone" title="github">github</a>
+                    
+                        <a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-论文" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2020/09/24/%E8%AE%BA%E6%96%87/" class="article-date">
+      <time datetime="2020-09-24T14:00:00.000Z" itemprop="datePublished">2020-09-24</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      WEB渗透测试的简单分析
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/WEB%E5%AD%A6%E4%B9%A0/">WEB学习</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web%E6%B8%97%E9%80%8F/" rel="tag">web渗透</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%A6%E6%A0%A1/" rel="tag">学校</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag">技术</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" rel="tag">网络安全</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        
+    <div id="aplayer-gXJRzeWd" class="aplayer aplayer-tag-marker meting-tag-marker"
+         data-id="4941417121" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"
+    ></div>
+
+
+<p><strong>分类 TP393.08  论文选题类型   应用研究</strong>           </p>
+<h2 id="摘-要"><a href="#摘-要" class="headerlink" title="摘  要"></a>摘  要</h2><p>随着网络技术的发展，人们的生活发生了改变。然而，web技术带来的安全问题也面临着前所未有的挑战。<br>本文提出了几种常见的、危害较大的web网络安全问题和渗透测试方法，为确保web网络安全提供了思路。<br>对于业务系统，从网站的各个方面，渗透测试服务包括信息收集和漏洞检测与利用，内网渗透和总结报告。、渗透测试员可以理解系统的各种防护措施；然后绕过和渗透，最后以获得访问控制的方式进行评估防护水平，制定报告和维护计划。</p>
+<p><strong>关键词：Web安全  信息泄露  渗透测试</strong></p>
+<h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p>With the development of network technology, people’s life has changed. However, the security problems brought by Web technology are also facing unprecedented challenges.</p>
+<p>This paper presents several common and harmful web network security problems and penetration testing methods, which provide ideas for ensuring Web network security.</p>
+<p>For business systems, penetration testing services include information collection and vulnerability detection and utilization, Intranet penetration and summary reporting from all aspects of the web site. The penetration tester can understand the various protective measures of the system; Then bypass and infiltrate, and finally assess the level of protection and develop reporting and maintenance plans in the form of access control.</p>
+<p><strong>Keywords: Web security information disclosure penetration test</strong> </p>
+<h2 id="一-绪论"><a href="#一-绪论" class="headerlink" title="一      绪论"></a>一      绪论</h2><h3 id="导论"><a href="#导论" class="headerlink" title="导论"></a>导论</h3><p>Web2.0以后，计算机的Web应用发展的非常迅速，Web应用平台被应用到多个领域。在方便用户使用的同时，随之而来的安全问题也很多，造成信息泄露，严重影响了个人隐私，为生产生活带来了安全隐患。Web应用程序出现安全漏洞的原因有很多。首先，开发人员编写程序时没有进行统一的安全培训和编码规范，造成代码脚本出现漏洞。其次，对用户的输入没有进行验证，导致被黑客利用，提取数据库权限，造成信息泄露。还有，客户端的HTTP请求头被蓄意修改，让用户跳转到钓鱼网站，获取到用户的敏感信息，造成经济损失。因此Web网站的安全问题亟待解决。Web渗透测试技术是目前针对Web安全的防护技术，有效地对Web网站漏洞进行扫描，找到安全隐患。渗透攻击测试是建立模拟攻击黑客代码的攻击测试方法，用于测评网络服务器系统安全状况的一种测试评估方法。本文介绍了Web应用存在的几种安全问题，以及相应的渗透测试方法。[1] </p>
+<h4 id="选题背景"><a href="#选题背景" class="headerlink" title="选题背景"></a>选题背景</h4><p>在网络技术快速发展的今天，网络显然已经成为了人类生活当中必不可少的技术之一。与之对应的是，人们意识到了网络安全问题的重要性，得到了全世界广泛关注。[2]</p>
+<h4 id="选题意义"><a href="#选题意义" class="headerlink" title="选题意义"></a>选题意义</h4><p>在互联网技术被广泛应用的同时，人们可以用网络平台完成各种信息资料的传输，便利了人们的生活与工作，有效共享了信息资源。当然不论是什么事物都存在两面性特征。信息技术同样也有许多缺点需要重视。因为网络技术本身存在很强开放性，所以如果其硬件、软件有漏洞就会遭到黑客攻击，导致信息泄露。对此为了解决该问题，就需要加强计算机网络管理工作[2]</p>
+<h4 id="课题研究内容、要求及目标"><a href="#课题研究内容、要求及目标" class="headerlink" title="课题研究内容、要求及目标"></a>课题研究内容、要求及目标</h4><p>研究内容：web漏洞的原理分析与渗透测试的简单思路<br>要求：思路清晰，原理明确<br>本课题最终将达到如下几个目标：</p>
+<p>1.对原理的阐述明确<br>2.渗透测试的思路清晰<br>3.对常见的渗透测试工具有所了解。</p>
+<h3 id="本章小结"><a href="#本章小结" class="headerlink" title="本章小结"></a>本章小结</h3><p>本章介绍了选题的背景和意义，并对课题的要求和研究内容作了分析，是研究的前期基础。 </p>
+<h2 id="二-常见web漏洞"><a href="#二-常见web漏洞" class="headerlink" title="二      常见web漏洞"></a>二      常见web漏洞</h2><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>本章是根据OWASP上对于web安全漏洞的排名写出来的，危害度与常见程度是关键的因素。并且DVWA（Damn Vulnerable Web Application）也给了我很多的启发。DVWA上面的题目对我的研究学习很有帮助。</p>
+<h3 id="渗透测试流程"><a href="#渗透测试流程" class="headerlink" title="渗透测试流程"></a>渗透测试流程</h3><h4 id="SQL注入"><a href="#SQL注入" class="headerlink" title="SQL注入"></a>SQL注入</h4><p>注入类的漏洞是WEB漏洞中的一个大分类，其中以SQL注入最为常见，危害极大。SQL注入攻击的原理主要是由于网站开发者未对用户的输入或者用户的请求包中的语句与特殊字符等做过滤或者转义。这就导致恶意人员输入的恶意语句在传递到网站后台之后被网站后台数据库当做是合法的输入从而执行，达到攻击者所想要达到的目的。我认为网站开发时，需要遵循“用户的一切输入都是不可信的”这一个大原则，对一切外来输入都要做一个严格的审查，这样就可以很好的提高安全性。</p>
+<h4 id="XSS跨站脚本攻击"><a href="#XSS跨站脚本攻击" class="headerlink" title="XSS跨站脚本攻击"></a>XSS跨站脚本攻击</h4><p>跨站点脚本攻击其实就是指在WEB服务器端的网页代码（如HTML）中插入一段有攻击者目的的恶意代码（如JavaScript），跨站点脚本攻击其实还是属于注入类的漏洞。当用户使用浏览器访问这个网页的过程中，服务器端的恶意脚本语句将被用户浏览器当做是正常的WEB服务传递的网页代码解释并执行，从而攻击了客户端的机器。达到了攻击者的目的。这依然需要遵循“用户的一切输入都是不可信的”这一个大原则，这样也可以在一定程度上避免跨站脚本攻击对WEB服务造成影响。</p>
+<h4 id="文件上传漏洞"><a href="#文件上传漏洞" class="headerlink" title="文件上传漏洞"></a>文件上传漏洞</h4><p>WEB文件上传漏洞一般是因为WEB服务的程序代码对文件的过滤不够严谨导致的，比如WEB中关于上传程序的后台代码缺少对于文件的后缀类型的过滤，这样就造成了恶意人员可以通过Web访问的目录地址，上传有含有恶意代码的文件，然后通过工具可以连接到网络中的服务器主机后台，获取管理员的权限，造成对主机的控制。所以，在涉及WEB服务中的文件上传需求时，一定要谨慎，需要特别重视对文件类型的限制，防止含有恶意代码的文件上传到服务器后台。再次提出一个原则，给“用户能达到需求的最小权限”，这个原则在操作系统用户管理中也可以用到。至于服务器的文件解析漏洞这里先不做讨论。</p>
+<h4 id="文件包含漏洞"><a href="#文件包含漏洞" class="headerlink" title="文件包含漏洞"></a>文件包含漏洞</h4><p>文件包含漏洞是由于恶意人员向Web网络服务器发送请求时，在请求头中增加了恶意的特意构造的参数，服务器接收端的程序代码对参数变量的过滤不完整，造成恶意的文件名被服务器后台当作是正常的参数从而执行。这些恶意的文件名可能是服务器后台的敏感文件，也可能是客户端的恶意人员专门编写的恶意文件。这类漏洞是由于PHP中的包含文件的include函数对参数的过滤不完整导致的，所以只有基于PHP语言开发的Web服务才有可能存在文件包含漏洞。</p>
+<h4 id="信息泄露漏洞"><a href="#信息泄露漏洞" class="headerlink" title="信息泄露漏洞"></a>信息泄露漏洞</h4><p>在WEB开发人员进行网页代码编写过程中，在网页代码中添加备注以及注释，以便于以后对网页代码的理解和维护。网页开发完毕后，若没有删除或者过滤掉注释信息，恶意人员便可以通过对注释信息的收集，获得系统的指纹信息，为进一步的攻击做准备。</p>
+<h3 id="本章小结-1"><a href="#本章小结-1" class="headerlink" title="本章小结"></a>本章小结</h3><p>本章对于常见的影响WEB安全的漏洞进行了列举，对SQL注入，XSS跨站脚本攻击，文件上传漏洞，文件包含漏洞，信息泄露的原理做了阐述。并且提出了两个网站开发的时候可以提升WEB服务安全性的原则。作为对网站开发者的建议。<br>原则一：用户的一切输入都是不可信的。<br>原则二：用户能达到需求的最小权限。  </p>
+<h2 id="三-渗透测试流程的简单分析"><a href="#三-渗透测试流程的简单分析" class="headerlink" title="三      渗透测试流程的简单分析"></a>三      渗透测试流程的简单分析</h2><h3 id="前言-1"><a href="#前言-1" class="headerlink" title="前言"></a>前言</h3><p>上文对常见的web漏洞做了简单的分析，那么对于这些漏洞应该怎么解决？其实渗透测试就是一种非常好的手段，也是现在常见的手段。</p>
+<h3 id="渗透测试的流程"><a href="#渗透测试的流程" class="headerlink" title="渗透测试的流程"></a>渗透测试的流程</h3><h4 id="明确目标"><a href="#明确目标" class="headerlink" title="明确目标"></a>明确目标</h4><p>主要是需要确定渗透测试的范围，确定渗透的规则方式，确定渗透的需求，需要测试到什么程度。</p>
+<h4 id="漏洞扫描"><a href="#漏洞扫描" class="headerlink" title="漏洞扫描"></a>漏洞扫描</h4><p>主要是扫描（挖掘）出操作系统的漏洞，web服务器漏洞，web应用漏洞以及其他端口所对应的服务的漏洞，如IIS,Telnet,SSH，SAMBA文件共享，远程桌面连接（3389）等。</p>
+<h4 id="漏洞利用"><a href="#漏洞利用" class="headerlink" title="漏洞利用"></a>漏洞利用</h4><p>漏洞利用主要是对探测到的漏洞进行攻击，方法主要就是工具加手工，工具如metasploit，也可手工在网络上查找公开的对应版本的漏洞，用来进行渗透测试。</p>
+<h4 id="提升权限"><a href="#提升权限" class="headerlink" title="提升权限"></a>提升权限</h4><p>提升权限主要是在当前用户权限的权限不足以完成自己的需求的时候去想办法提升自身的权限以完成自己的需求，提升权限可以是提升系统权限（如用户权限），web应用权限或是数据库的操作权限等。</p>
+<h4 id="清除痕迹"><a href="#清除痕迹" class="headerlink" title="清除痕迹"></a>清除痕迹</h4><p>清除痕迹主要是清除渗透过程中进行的操作的一些痕迹，如添加的用户，上传的恶意文件，操作的日志等。</p>
+<h4 id="事后信息分析"><a href="#事后信息分析" class="headerlink" title="事后信息分析"></a>事后信息分析</h4><p>主要是对整个渗透过程进行分析与整理，分析测试目标的弱点，技术防护的程度以及权限管理方面的情况，进行一个情况分析然后提出相关的建议。</p>
+<h4 id="编写渗透测试报告"><a href="#编写渗透测试报告" class="headerlink" title="编写渗透测试报告"></a>编写渗透测试报告</h4><p>根据渗透测试的过程编写渗透测试报告，渗透测试报告要求：</p>
+<p>1.简洁，清晰阐述渗透范围，攻击方式，渗透成果，以及详细的漏洞详情（相关描述，漏洞危害等）及具有可行的修复建议，最后对整体渗透及修改情况进行简单的总结和分析，<br>2.清晰阐述目前的状况，应该从哪些方面进行加固和提升</p>
+<h4 id="渗透测试相关原则"><a href="#渗透测试相关原则" class="headerlink" title="渗透测试相关原则"></a>渗透测试相关原则</h4><ol>
+<li>最小影响原则</li>
+<li>非破坏性原则</li>
+<li>全面深入原则</li>
+<li>保密性原则[3]</li>
+</ol>
+<h3 id="本章小结-2"><a href="#本章小结-2" class="headerlink" title="本章小结"></a>本章小结</h3><p>本章对于渗透测试的流程做了一个简单的分析，这是一个非常实用的测试思路，对于提升网站的安全很有帮助。</p>
+<h2 id="四-结束语"><a href="#四-结束语" class="headerlink" title="四      结束语"></a>四      结束语</h2><p>随着信息社会的发展，大量的私密信息在网上流通，网站和用户数据的安全就显得越发重要。而其中web更是网络中的重要阵地。本文对于Web安全问题，以及渗透测试的方法做了一个简单地分析，为解决系统潜在的安全风险，缩小漏洞造成的损失，提供了一定的帮助。</p>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p>[1] 肖鹏. 浅谈Web渗透测试技术  [A]. 1674-098X(2019)06(b)-0132-02<br>[2] 姜可. 计算机网络安全与漏洞扫描技术的应用研究.<br>[3] 渗透测试基本流程：简书．<a href="https://www.jianshu.com/p/433d9d532c93" target="_blank" rel="noopener">https://www.jianshu.com/p/433d9d532c93</a><br>[4] 邓泽龙.浅析WEB渗透信息收集 [J]. 电子元器件与信息技术 ,2020,4(4):24-25+32. </p>
+<h2 id="致-谢"><a href="#致-谢" class="headerlink" title="致  谢"></a>致  谢</h2><p>首先，要感谢我的指导老师熊陶。在毕业论文和设计的完成过程中，熊陶老师在百忙之中查阅和修改本论文，给予了很多悉心的指导，对论文的修改建议很细致，给予了很多完善论文的启发。熊陶老师这种严谨治学的态度，让我肃然起敬，同时深厚的理论水平也让我受益匪浅。在指出论文中存在的问题和提供建设性修改意见的同时，也不忘鼓励我发扬长处，让我很受欣慰和鼓舞，从熊陶老师身上，我学到了很多东西，从做人，做事，到求学，治学，包括发现问题，分析问题，解决问题的态度和技巧，都将是我今后工作和生活受用无穷的宝贵经验财富。通过与熊陶老师问题的交流和整个论文及毕业设计的完成实现的过程，我在各个方面都得到了很大的提高，在这里，学生真诚地对熊陶老师表示深深的感激与谢意。<br>其次，还要感谢我的那帮可爱的同学们，在设计过程他们也给予了很多帮助，给予了我很多新奇的创意和开阔的思路，在此向他们表示感谢。<br>通过这一阶段的学习和研究，系统终于得以实现，其中耗费了很多精力和时间，但本次设计是大学对即将走进社会的我们的一次知识和能力的综合考验，这将是激励我去创造的一个起点，会永远激励着我前进。<br>最后，还是要再次衷心地感谢这些年来给予我帮助的所有亲人，老师，朋友和同学们，谢谢你们！</p>
+
+      
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2020/09/24/%E8%AE%BA%E6%96%87/">WEB渗透测试的简单分析</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 TogetherAlone 的个人博客">TogetherAlone</a></p>
+        <p><span>发布时间:</span>2020年09月24日 - 22时00分</p>
+        <p><span>最后更新:</span>2020年09月29日 - 20时39分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2020/09/24/%E8%AE%BA%E6%96%87/" title="WEB渗透测试的简单分析">https://itogetheralone.github.io/2020/09/24/%E8%AE%BA%E6%96%87/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://itogetheralone.github.io/2020/09/24/%E8%AE%BA%E6%96%87/　　作者: TogetherAlone" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+  
+    <a href="/2020/09/24/XML%E5%AD%A6%E4%B9%A0/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">XML基础学习</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#摘-要"><span class="toc-number">1.</span> <span class="toc-text">摘  要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Abstract"><span class="toc-number">2.</span> <span class="toc-text">Abstract</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一-绪论"><span class="toc-number">3.</span> <span class="toc-text">一      绪论</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#导论"><span class="toc-number">3.1.</span> <span class="toc-text">导论</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#选题背景"><span class="toc-number">3.1.1.</span> <span class="toc-text">选题背景</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#选题意义"><span class="toc-number">3.1.2.</span> <span class="toc-text">选题意义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#课题研究内容、要求及目标"><span class="toc-number">3.1.3.</span> <span class="toc-text">课题研究内容、要求及目标</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#本章小结"><span class="toc-number">3.2.</span> <span class="toc-text">本章小结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二-常见web漏洞"><span class="toc-number">4.</span> <span class="toc-text">二      常见web漏洞</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-number">4.1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#渗透测试流程"><span class="toc-number">4.2.</span> <span class="toc-text">渗透测试流程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#SQL注入"><span class="toc-number">4.2.1.</span> <span class="toc-text">SQL注入</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#XSS跨站脚本攻击"><span class="toc-number">4.2.2.</span> <span class="toc-text">XSS跨站脚本攻击</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#文件上传漏洞"><span class="toc-number">4.2.3.</span> <span class="toc-text">文件上传漏洞</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#文件包含漏洞"><span class="toc-number">4.2.4.</span> <span class="toc-text">文件包含漏洞</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#信息泄露漏洞"><span class="toc-number">4.2.5.</span> <span class="toc-text">信息泄露漏洞</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#本章小结-1"><span class="toc-number">4.3.</span> <span class="toc-text">本章小结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三-渗透测试流程的简单分析"><span class="toc-number">5.</span> <span class="toc-text">三      渗透测试流程的简单分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言-1"><span class="toc-number">5.1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#渗透测试的流程"><span class="toc-number">5.2.</span> <span class="toc-text">渗透测试的流程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#明确目标"><span class="toc-number">5.2.1.</span> <span class="toc-text">明确目标</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#漏洞扫描"><span class="toc-number">5.2.2.</span> <span class="toc-text">漏洞扫描</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#漏洞利用"><span class="toc-number">5.2.3.</span> <span class="toc-text">漏洞利用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#提升权限"><span class="toc-number">5.2.4.</span> <span class="toc-text">提升权限</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#清除痕迹"><span class="toc-number">5.2.5.</span> <span class="toc-text">清除痕迹</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#事后信息分析"><span class="toc-number">5.2.6.</span> <span class="toc-text">事后信息分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#编写渗透测试报告"><span class="toc-number">5.2.7.</span> <span class="toc-text">编写渗透测试报告</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#渗透测试相关原则"><span class="toc-number">5.2.8.</span> <span class="toc-text">渗透测试相关原则</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#本章小结-2"><span class="toc-number">5.3.</span> <span class="toc-text">本章小结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四-结束语"><span class="toc-number">6.</span> <span class="toc-text">四      结束语</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考文献"><span class="toc-number">7.</span> <span class="toc-text">参考文献</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#致-谢"><span class="toc-number">8.</span> <span class="toc-text">致  谢</span></a></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+        <section id="comments">
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'swing'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+</section>
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2020/09/24/XML%E5%AD%A6%E4%B9%A0/" title="下一篇: XML基础学习">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/09/24/%E8%AE%BA%E6%96%87/">WEB渗透测试的简单分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/24/XML%E5%AD%A6%E4%B9%A0/">XML基础学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/23/zabbix/">基于Zabbix的Linux自动化监控系统简单配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/24/%E5%8A%AA%E5%8A%9B%E5%B0%B1%E4%BC%9A%E6%88%90%E5%8A%9F/">“努力就会成功”</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/24/%E6%88%91%E4%BB%AC%E6%B2%A1%E5%BF%85%E8%A6%81%E7%9B%B8%E4%BA%92%E7%90%86%E8%A7%A3/">我们没必要相互理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/22/markdown/">记Markdown语言的学习与总结</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2020 TogetherAlone
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="http://bestwing.me" target="_blank">Sw'blog</a> by Swing
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >海贼到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 49;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+    <script type="text/javascript">
+      window.onload = function(){
+        document.getElementById("search").onclick = function(){
+            console.log("search")
+            search();
+        }
+      }
+      function search(){
+        (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+        (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+        e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+        })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+        _st('install','A1Pz-LKMXbrzcFg2FWi6','2.0.0');
+      }
+    </script>
+
+  </div>
+  <!-- 雪花特效 -->
+  <script type="text/javascript" src="\js\snow.js"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/kesyoban.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

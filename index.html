@@ -193,7 +193,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/%E5%AE%B6%E4%B8%AD/" style="font-size: 20px;">家中</a> <a href="/tags/%E6%80%9D%E6%83%B3/" style="font-size: 15px;">思想</a> <a href="/tags/%E6%8A%80%E6%9C%AF/" style="font-size: 10px;">技术</a>
+                        <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/XML/" style="font-size: 10px;">XML</a> <a href="/tags/web%E6%B8%97%E9%80%8F/" style="font-size: 10px;">web渗透</a> <a href="/tags/%E5%AD%A6%E6%A0%A1/" style="font-size: 16.67px;">学校</a> <a href="/tags/%E5%AE%B6%E4%B8%AD/" style="font-size: 16.67px;">家中</a> <a href="/tags/%E6%80%9D%E6%83%B3/" style="font-size: 13.33px;">思想</a> <a href="/tags/%E6%8A%80%E6%9C%AF/" style="font-size: 20px;">技术</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" style="font-size: 10px;">网络安全</a>
                     </div>
                 </section>
                 
@@ -265,6 +265,315 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-论文" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2020/09/24/%E8%AE%BA%E6%96%87/" class="article-date">
+      <time datetime="2020-09-24T14:00:00.000Z" itemprop="datePublished">2020-09-24</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/09/24/%E8%AE%BA%E6%96%87/">WEB渗透测试的简单分析</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        
+    <div id="aplayer-gXJRzeWd" class="aplayer aplayer-tag-marker meting-tag-marker"
+         data-id="4941417121" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"
+    ></div>
+
+
+<p><strong>分类 TP393.08  论文选题类型   应用研究</strong>           </p>
+<h2 id="摘-要"><a href="#摘-要" class="headerlink" title="摘  要"></a>摘  要</h2><p>随着网络技术的发展，人们的生活发生了改变。然而，web技术带来的安全问题也面临着前所未有的挑战。<br>本文提出了几种常见的、危害较大的web网络安全问题和渗透测试方法，为确保web网络安全提供了思路。<br>对于业务系统，从网站的各个方面，渗透测试服务包括信息收集和漏洞检测与利用，内网渗透和总结报告。、渗透测试员可以理解系统的各种防护措施；然后绕过和渗透，最后以获得访问控制的方式进行评估防护水平，制定报告和维护计划。</p>
+<p><strong>关键词：Web安全  信息泄露  渗透测试</strong></p>
+<h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p>With the development of network technology, people’s life has changed. However, the security problems brought by Web technology are also facing unprecedented challenges.</p>
+<p>This paper presents several common and harmful web network security problems and penetration testing methods, which provide ideas for ensuring Web network security.</p>
+<p>For business systems, penetration testing services include information collection and vulnerability detection and utilization, Intranet penetration and summary reporting from all aspects of the web site. The penetration tester can understand the various protective measures of the system; Then bypass and infiltrate, and finally assess the level of protection and develop reporting and maintenance plans in the form of access control.</p>
+<p><strong>Keywords: Web security information disclosure penetration test</strong> </p>
+<h2 id="一-绪论"><a href="#一-绪论" class="headerlink" title="一      绪论"></a>一      绪论</h2><h3 id="导论"><a href="#导论" class="headerlink" title="导论"></a>导论</h3><p>Web2.0以后，计算机的Web应用发展的非常迅速，Web应用平台被应用到多个领域。在方便用户使用的同时，随之而来的安全问题也很多，造成信息泄露，严重影响了个人隐私，为生产生活带来了安全隐患。Web应用程序出现安全漏洞的原因有很多。首先，开发人员编写程序时没有进行统一的安全培训和编码规范，造成代码脚本出现漏洞。其次，对用户的输入没有进行验证，导致被黑客利用，提取数据库权限，造成信息泄露。还有，客户端的HTTP请求头被蓄意修改，让用户跳转到钓鱼网站，获取到用户的敏感信息，造成经济损失。因此Web网站的安全问题亟待解决。Web渗透测试技术是目前针对Web安全的防护技术，有效地对Web网站漏洞进行扫描，找到安全隐患。渗透攻击测试是建立模拟攻击黑客代码的攻击测试方法，用于测评网络服务器系统安全状况的一种测试评估方法。本文介绍了Web应用存在的几种安全问题，以及相应的渗透测试方法。[1] </p>
+<h4 id="选题背景"><a href="#选题背景" class="headerlink" title="选题背景"></a>选题背景</h4><p>在网络技术快速发展的今天，网络显然已经成为了人类生活当中必不可少的技术之一。与之对应的是，人们意识到了网络安全问题的重要性，得到了全世界广泛关注。[2]</p>
+<h4 id="选题意义"><a href="#选题意义" class="headerlink" title="选题意义"></a>选题意义</h4><p>在互联网技术被广泛应用的同时，人们可以用网络平台完成各种信息资料的传输，便利了人们的生活与工作，有效共享了信息资源。当然不论是什么事物都存在两面性特征。信息技术同样也有许多缺点需要重视。因为网络技术本身存在很强开放性，所以如果其硬件、软件有漏洞就会遭到黑客攻击，导致信息泄露。对此为了解决该问题，就需要加强计算机网络管理工作[2]</p>
+<h4 id="课题研究内容、要求及目标"><a href="#课题研究内容、要求及目标" class="headerlink" title="课题研究内容、要求及目标"></a>课题研究内容、要求及目标</h4><p>研究内容：web漏洞的原理分析与渗透测试的简单思路<br>要求：思路清晰，原理明确<br>本课题最终将达到如下几个目标：</p>
+<p>1.对原理的阐述明确<br>2.渗透测试的思路清晰<br>3.对常见的渗透测试工具有所了解。</p>
+<h3 id="本章小结"><a href="#本章小结" class="headerlink" title="本章小结"></a>本章小结</h3><p>本章介绍了选题的背景和意义，并对课题的要求和研究内容作了分析，是研究的前期基础。 </p>
+<h2 id="二-常见web漏洞"><a href="#二-常见web漏洞" class="headerlink" title="二      常见web漏洞"></a>二      常见web漏洞</h2><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>本章是根据OWASP上对于web安全漏洞的排名写出来的，危害度与常见程度是关键的因素。并且DVWA（Damn Vulnerable Web Application）也给了我很多的启发。DVWA上面的题目对我的研究学习很有帮助。</p>
+<h3 id="渗透测试流程"><a href="#渗透测试流程" class="headerlink" title="渗透测试流程"></a>渗透测试流程</h3><h4 id="SQL注入"><a href="#SQL注入" class="headerlink" title="SQL注入"></a>SQL注入</h4><p>注入类的漏洞是WEB漏洞中的一个大分类，其中以SQL注入最为常见，危害极大。SQL注入攻击的原理主要是由于网站开发者未对用户的输入或者用户的请求包中的语句与特殊字符等做过滤或者转义。这就导致恶意人员输入的恶意语句在传递到网站后台之后被网站后台数据库当做是合法的输入从而执行，达到攻击者所想要达到的目的。我认为网站开发时，需要遵循“用户的一切输入都是不可信的”这一个大原则，对一切外来输入都要做一个严格的审查，这样就可以很好的提高安全性。</p>
+<h4 id="XSS跨站脚本攻击"><a href="#XSS跨站脚本攻击" class="headerlink" title="XSS跨站脚本攻击"></a>XSS跨站脚本攻击</h4><p>跨站点脚本攻击其实就是指在WEB服务器端的网页代码（如HTML）中插入一段有攻击者目的的恶意代码（如JavaScript），跨站点脚本攻击其实还是属于注入类的漏洞。当用户使用浏览器访问这个网页的过程中，服务器端的恶意脚本语句将被用户浏览器当做是正常的WEB服务传递的网页代码解释并执行，从而攻击了客户端的机器。达到了攻击者的目的。这依然需要遵循“用户的一切输入都是不可信的”这一个大原则，这样也可以在一定程度上避免跨站脚本攻击对WEB服务造成影响。</p>
+<h4 id="文件上传漏洞"><a href="#文件上传漏洞" class="headerlink" title="文件上传漏洞"></a>文件上传漏洞</h4><p>WEB文件上传漏洞一般是因为WEB服务的程序代码对文件的过滤不够严谨导致的，比如WEB中关于上传程序的后台代码缺少对于文件的后缀类型的过滤，这样就造成了恶意人员可以通过Web访问的目录地址，上传有含有恶意代码的文件，然后通过工具可以连接到网络中的服务器主机后台，获取管理员的权限，造成对主机的控制。所以，在涉及WEB服务中的文件上传需求时，一定要谨慎，需要特别重视对文件类型的限制，防止含有恶意代码的文件上传到服务器后台。再次提出一个原则，给“用户能达到需求的最小权限”，这个原则在操作系统用户管理中也可以用到。至于服务器的文件解析漏洞这里先不做讨论。</p>
+<h4 id="文件包含漏洞"><a href="#文件包含漏洞" class="headerlink" title="文件包含漏洞"></a>文件包含漏洞</h4><p>文件包含漏洞是由于恶意人员向Web网络服务器发送请求时，在请求头中增加了恶意的特意构造的参数，服务器接收端的程序代码对参数变量的过滤不完整，造成恶意的文件名被服务器后台当作是正常的参数从而执行。这些恶意的文件名可能是服务器后台的敏感文件，也可能是客户端的恶意人员专门编写的恶意文件。这类漏洞是由于PHP中的包含文件的include函数对参数的过滤不完整导致的，所以只有基于PHP语言开发的Web服务才有可能存在文件包含漏洞。</p>
+<h4 id="信息泄露漏洞"><a href="#信息泄露漏洞" class="headerlink" title="信息泄露漏洞"></a>信息泄露漏洞</h4><p>在WEB开发人员进行网页代码编写过程中，在网页代码中添加备注以及注释，以便于以后对网页代码的理解和维护。网页开发完毕后，若没有删除或者过滤掉注释信息，恶意人员便可以通过对注释信息的收集，获得系统的指纹信息，为进一步的攻击做准备。</p>
+<h3 id="本章小结-1"><a href="#本章小结-1" class="headerlink" title="本章小结"></a>本章小结</h3><p>本章对于常见的影响WEB安全的漏洞进行了列举，对SQL注入，XSS跨站脚本攻击，文件上传漏洞，文件包含漏洞，信息泄露的原理做了阐述。并且提出了两个网站开发的时候可以提升WEB服务安全性的原则。作为对网站开发者的建议。<br>原则一：用户的一切输入都是不可信的。<br>原则二：用户能达到需求的最小权限。  </p>
+<h2 id="三-渗透测试流程的简单分析"><a href="#三-渗透测试流程的简单分析" class="headerlink" title="三      渗透测试流程的简单分析"></a>三      渗透测试流程的简单分析</h2><h3 id="前言-1"><a href="#前言-1" class="headerlink" title="前言"></a>前言</h3><p>上文对常见的web漏洞做了简单的分析，那么对于这些漏洞应该怎么解决？其实渗透测试就是一种非常好的手段，也是现在常见的手段。</p>
+<h3 id="渗透测试的流程"><a href="#渗透测试的流程" class="headerlink" title="渗透测试的流程"></a>渗透测试的流程</h3><h4 id="明确目标"><a href="#明确目标" class="headerlink" title="明确目标"></a>明确目标</h4><p>主要是需要确定渗透测试的范围，确定渗透的规则方式，确定渗透的需求，需要测试到什么程度。</p>
+<h4 id="漏洞扫描"><a href="#漏洞扫描" class="headerlink" title="漏洞扫描"></a>漏洞扫描</h4><p>主要是扫描（挖掘）出操作系统的漏洞，web服务器漏洞，web应用漏洞以及其他端口所对应的服务的漏洞，如IIS,Telnet,SSH，SAMBA文件共享，远程桌面连接（3389）等。</p>
+<h4 id="漏洞利用"><a href="#漏洞利用" class="headerlink" title="漏洞利用"></a>漏洞利用</h4><p>漏洞利用主要是对探测到的漏洞进行攻击，方法主要就是工具加手工，工具如metasploit，也可手工在网络上查找公开的对应版本的漏洞，用来进行渗透测试。</p>
+<h4 id="提升权限"><a href="#提升权限" class="headerlink" title="提升权限"></a>提升权限</h4><p>提升权限主要是在当前用户权限的权限不足以完成自己的需求的时候去想办法提升自身的权限以完成自己的需求，提升权限可以是提升系统权限（如用户权限），web应用权限或是数据库的操作权限等。</p>
+<h4 id="清除痕迹"><a href="#清除痕迹" class="headerlink" title="清除痕迹"></a>清除痕迹</h4><p>清除痕迹主要是清除渗透过程中进行的操作的一些痕迹，如添加的用户，上传的恶意文件，操作的日志等。</p>
+<h4 id="事后信息分析"><a href="#事后信息分析" class="headerlink" title="事后信息分析"></a>事后信息分析</h4><p>主要是对整个渗透过程进行分析与整理，分析测试目标的弱点，技术防护的程度以及权限管理方面的情况，进行一个情况分析然后提出相关的建议。</p>
+<h4 id="编写渗透测试报告"><a href="#编写渗透测试报告" class="headerlink" title="编写渗透测试报告"></a>编写渗透测试报告</h4><p>根据渗透测试的过程编写渗透测试报告，渗透测试报告要求：</p>
+<p>1.简洁，清晰阐述渗透范围，攻击方式，渗透成果，以及详细的漏洞详情（相关描述，漏洞危害等）及具有可行的修复建议，最后对整体渗透及修改情况进行简单的总结和分析，<br>2.清晰阐述目前的状况，应该从哪些方面进行加固和提升</p>
+<h4 id="渗透测试相关原则"><a href="#渗透测试相关原则" class="headerlink" title="渗透测试相关原则"></a>渗透测试相关原则</h4><ol>
+<li>最小影响原则</li>
+<li>非破坏性原则</li>
+<li>全面深入原则</li>
+<li>保密性原则[3]</li>
+</ol>
+<h3 id="本章小结-2"><a href="#本章小结-2" class="headerlink" title="本章小结"></a>本章小结</h3><p>本章对于渗透测试的流程做了一个简单的分析，这是一个非常实用的测试思路，对于提升网站的安全很有帮助。</p>
+<h2 id="四-结束语"><a href="#四-结束语" class="headerlink" title="四      结束语"></a>四      结束语</h2><p>随着信息社会的发展，大量的私密信息在网上流通，网站和用户数据的安全就显得越发重要。而其中web更是网络中的重要阵地。本文对于Web安全问题，以及渗透测试的方法做了一个简单地分析，为解决系统潜在的安全风险，缩小漏洞造成的损失，提供了一定的帮助。</p>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p>[1] 肖鹏. 浅谈Web渗透测试技术  [A]. 1674-098X(2019)06(b)-0132-02<br>[2] 姜可. 计算机网络安全与漏洞扫描技术的应用研究.<br>[3] 渗透测试基本流程：简书．<a href="https://www.jianshu.com/p/433d9d532c93" target="_blank" rel="noopener">https://www.jianshu.com/p/433d9d532c93</a><br>[4] 邓泽龙.浅析WEB渗透信息收集 [J]. 电子元器件与信息技术 ,2020,4(4):24-25+32. </p>
+<h2 id="致-谢"><a href="#致-谢" class="headerlink" title="致  谢"></a>致  谢</h2><p>首先，要感谢我的指导老师熊陶。在毕业论文和设计的完成过程中，熊陶老师在百忙之中查阅和修改本论文，给予了很多悉心的指导，对论文的修改建议很细致，给予了很多完善论文的启发。熊陶老师这种严谨治学的态度，让我肃然起敬，同时深厚的理论水平也让我受益匪浅。在指出论文中存在的问题和提供建设性修改意见的同时，也不忘鼓励我发扬长处，让我很受欣慰和鼓舞，从熊陶老师身上，我学到了很多东西，从做人，做事，到求学，治学，包括发现问题，分析问题，解决问题的态度和技巧，都将是我今后工作和生活受用无穷的宝贵经验财富。通过与熊陶老师问题的交流和整个论文及毕业设计的完成实现的过程，我在各个方面都得到了很大的提高，在这里，学生真诚地对熊陶老师表示深深的感激与谢意。<br>其次，还要感谢我的那帮可爱的同学们，在设计过程他们也给予了很多帮助，给予了我很多新奇的创意和开阔的思路，在此向他们表示感谢。<br>通过这一阶段的学习和研究，系统终于得以实现，其中耗费了很多精力和时间，但本次设计是大学对即将走进社会的我们的一次知识和能力的综合考验，这将是激励我去创造的一个起点，会永远激励着我前进。<br>最后，还是要再次衷心地感谢这些年来给予我帮助的所有亲人，老师，朋友和同学们，谢谢你们！</p>
+
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/WEB%E5%AD%A6%E4%B9%A0/">WEB学习</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web%E6%B8%97%E9%80%8F/" rel="tag">web渗透</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%A6%E6%A0%A1/" rel="tag">学校</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag">技术</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" rel="tag">网络安全</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-XML学习" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2020/09/24/XML%E5%AD%A6%E4%B9%A0/" class="article-date">
+      <time datetime="2020-09-24T13:00:00.000Z" itemprop="datePublished">2020-09-24</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/09/24/XML%E5%AD%A6%E4%B9%A0/">XML基础学习</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        
+    <div id="aplayer-vhnqqfhP" class="aplayer aplayer-tag-marker meting-tag-marker"
+         data-id="4941417121" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"
+    ></div>
+
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/WEB%E5%AD%A6%E4%B9%A0/">WEB学习</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/XML/" rel="tag">XML</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%A6%E6%A0%A1/" rel="tag">学校</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag">技术</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-zabbix" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2020/09/23/zabbix/" class="article-date">
+      <time datetime="2020-09-23T14:00:00.000Z" itemprop="datePublished">2020-09-23</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/09/23/zabbix/">基于Zabbix的Linux自动化监控系统简单配置</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        
+    <div id="aplayer-NdrIiwfW" class="aplayer aplayer-tag-marker meting-tag-marker"
+         data-id="4941417121" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"
+    ></div>
+
+
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><p>配置centos7主机网卡配置为NAT，进入系统修改网卡配置为自动，修改主机名为s1</p>
+<p>配置s1的yum源和zabbix源为aliyun源</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">配置阿里云zabbix yum源</span><br><span class="line">rpm -ivh https:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;zabbix&#x2F;zabbix&#x2F;3.0&#x2F;rhel&#x2F;7&#x2F;x86_64&#x2F;zabbix-release-3.0-1.el7.noarch.rpm</span><br><span class="line"></span><br><span class="line">下载repo文件</span><br><span class="line">wget http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;repo&#x2F;Centos-7.repo</span><br><span class="line"></span><br><span class="line">执行下面步骤生成缓存</span><br><span class="line">yum makecache</span><br><span class="line"></span><br><span class="line">打开 &#x2F;etc&#x2F;yum.repos.d&#x2F;zabbix.repo 将下列两行内容覆盖掉原来的内容</span><br><span class="line">[zabbix]</span><br><span class="line">name&#x3D;Zabbix Official Repository - \$basearch</span><br><span class="line">baseurl&#x3D;https:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;zabbix&#x2F;zabbix&#x2F;3.0&#x2F;rhel&#x2F;7&#x2F;\$basearch&#x2F;        #就是这一行</span><br><span class="line">gpgcheck&#x3D;1</span><br><span class="line">gpgkey&#x3D;file:&#x2F;&#x2F;&#x2F;etc&#x2F;pki&#x2F;rpm-gpg&#x2F;RPM-GPG-KEY-ZABBIX-A14FE591</span><br><span class="line">  </span><br><span class="line">[zabbix-non-supported]</span><br><span class="line">name&#x3D;Zabbix Official Repository non-supported - \$basearch</span><br><span class="line">baseurl&#x3D;https:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;zabbix&#x2F;non-supported&#x2F;rhel&#x2F;7&#x2F;\$basearch&#x2F;   #就是这一行</span><br><span class="line">enabled&#x3D;1</span><br><span class="line">gpgkey&#x3D;file:&#x2F;&#x2F;&#x2F;etc&#x2F;pki&#x2F;rpm-gpg&#x2F;RPM-GPG-KEY-ZABBIX</span><br><span class="line">gpgcheck&#x3D;1</span><br><span class="line"></span><br><span class="line">在控制台添加gpgkey</span><br><span class="line">curl https:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;zabbix&#x2F;RPM-GPG-KEY-ZABBIX-A14FE591 \ -o &#x2F;etc&#x2F;pki&#x2F;rpm-gpg&#x2F;RPM-GPG-KEY-ZABBIX-A14FE591</span><br><span class="line">curl https:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;zabbix&#x2F;RPM-GPG-KEY-ZABBIX \ -o &#x2F;etc&#x2F;pki&#x2F;rpm-gpg&#x2F;RPM-GPG-KEY-ZABBIX</span><br><span class="line"></span><br><span class="line">执行更新源命令</span><br><span class="line">yum makecache -y</span><br><span class="line"></span><br><span class="line">再安装</span><br><span class="line">yum -y install zabbix-server-mysql zabbix-web-mysql zabbix-get</span><br><span class="line"></span><br><span class="line">后续客户端也要执行上述过程才可以安装</span><br><span class="line">yum -y install zabbix-agent</span><br></pre></td></tr></table></figure>
+
+<p>克隆s1主机为a1，并修改主机名为a1</p>
+<p>安装mariadb，php，httpd等软件包</p>
+<blockquote>
+<p>yum -y install mariadb mariadb-server php php-mysql httpd</p>
+</blockquote>
+<p>启动httpd服务，并打开测试页</p>
+<blockquote>
+<p>systemctl start httpd</p>
+</blockquote>
+<p>启动mariadb数据库，并初始化数据库，设置root密码</p>
+<blockquote>
+<p>systemctl start mariadb<br>mysql_secure_installation</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">#输入数据库中root用户密码（默认为空，按回车即可）</span><br><span class="line">Enter current password for root (enter for none): </span><br><span class="line">OK, successfully used password, moving on...</span><br><span class="line">#是否设置root密码？是</span><br><span class="line">Set root password? [Y&#x2F;n] y</span><br><span class="line">New password: </span><br><span class="line">Re-enter new password: </span><br><span class="line">Password updated successfully!</span><br><span class="line">Reloading privilege tables..</span><br><span class="line"> ... Success!</span><br><span class="line">#是否移除匿名用户？是</span><br><span class="line">Remove anonymous users? [Y&#x2F;n] y</span><br><span class="line"> ... Success!</span><br><span class="line"></span><br><span class="line">#是否禁止root用户远程登陆？是（亦可按回车跳过，保留默认设置）</span><br><span class="line">Disallow root login remotely? [Y&#x2F;n] n</span><br><span class="line">... skipping.</span><br><span class="line"></span><br><span class="line">#是否删除测试用的数据库和权限？是</span><br><span class="line">Remove test database and access to it? [Y&#x2F;n] y</span><br><span class="line"> - Dropping test database...</span><br><span class="line"> ... Success!</span><br><span class="line"> - Removing privileges on test database...</span><br><span class="line"> ... Success!</span><br><span class="line"></span><br><span class="line">#重新加载权限表？是</span><br><span class="line">Reload privilege tables now? [Y&#x2F;n] y</span><br><span class="line"> ... Success!</span><br></pre></td></tr></table></figure>
+
+<p>创建数据库和登录数据库的用户及密码，并且设置用户登录数据库的权限，最后测试用户登录数据库显示创建的数据库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">（1）创建Zabbix数据库</span><br><span class="line"></span><br><span class="line">mysql -uroot –p123456 -e &quot;create database zabbix default character set utf8 collate utf8_bin;&quot;</span><br><span class="line"></span><br><span class="line">（2）创建Zabbix用户</span><br><span class="line"></span><br><span class="line">useradd zabbix</span><br><span class="line">passwd zabbix</span><br><span class="line">mysql -uroot –p123456 -e &quot;grant all on zabbix.*to &#39;zabbix&#39;@&#39;%&#39; identified by &#39;zabbix&#39;;&quot;</span><br><span class="line"></span><br><span class="line">（3）测试Zabbix用户</span><br><span class="line"></span><br><span class="line">mysql -uzabbix –pzabbix	#使用zabbix登陆数据库</span><br></pre></td></tr></table></figure>
+
+<p>安装Zabbix Server端等各个软件包</p>
+<blockquote>
+<p>yum -y install zabbix-server-mysql zabbix-web-mysql zabbix-get </p>
+</blockquote>
+<p>导入表结构</p>
+<blockquote>
+<p>cd /usr/share/doc/zabbix-server-mysql-3.0.31/<br>zcat create.sql.gz | mysql -uroot –p123456 zabbix</p>
+</blockquote>
+<p>修改配置文件zabbix_server.conf和修改配置文件zabbix.conf</p>
+<p>使用Vi编辑器打开该文件<strong>/etc/zabbix/zabbix_server.conf</strong>，按照如下信息对其中的相应选项进行设置：</p>
+<p><strong>DBHost=localhost<br>DBName=zabbix<br>DBUser=zabbix<br>DBPassword=zabbix</strong></p>
+<p>修改配置文件zabbix.conf</p>
+<p>使用Vi编辑器打开该文件<strong>/etc/httpd/conf.d/zabbix.conf</strong></p>
+<blockquote>
+<p>php_value date.timezone Asia/Shanghai </p>
+</blockquote>
+<p>启动zabbix-server并重启httpd服务</p>
+<blockquote>
+<p>systemctl start zabbix-server<br>systemctl restart httpd</p>
+</blockquote>
+<p>配置zabbix的web页面</p>
+<p>在主机s1和克隆主机a1上安装zabbix-agent</p>
+<blockquote>
+<p>yum -y install zabbix-agent</p>
+</blockquote>
+<p>配置两台主机的zabbix-agent文件并启动两台主机的zabbix-agent服务<br>打开<strong>etc/zabbix/zabbix_agentd.conf<br>修改server=192.168.153.128<br>Serverative=192.168.153.128<br>Hostname=192.168.153.129</strong></p>
+<p>重启：</p>
+<blockquote>
+<p>systemctl start zabbix-agent</p>
+</blockquote>
+<p>开启防火墙端口</p>
+<blockquote>
+<p>firewall-cmd –zone=public –add-port=10050/tcp –permanent</p>
+</blockquote>
+<p>关闭SELinux</p>
+<p>在主机s1测试zabbix连通性</p>
+<blockquote>
+<p>zabbix_get -s 192.168.255.158 -k system.uname</p>
+</blockquote>
+<p>登录zabbix的web管理页，创建一个新用户</p>
+<p>创建两个主机</p>
+<p>创建一个item</p>
+<p>创建一个Trigger</p>
+<p>创建一个Action</p>
+<p>浏览Monitoring→Events，过滤器中选择触发器“CPUStatus”，显示内容</p>
+<p>将a1主机绑定任意template</p>
+
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/">系统管理</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%A6%E6%A0%A1/" rel="tag">学校</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag">技术</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-努力就会成功" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -293,7 +602,7 @@
       
           
         
-    <div id="aplayer-QQgXndgI" class="aplayer aplayer-tag-marker meting-tag-marker"
+    <div id="aplayer-WqgbzWVL" class="aplayer aplayer-tag-marker meting-tag-marker"
          data-id="4941417121" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"
     ></div>
 
@@ -610,7 +919,7 @@
 <img src="https://iTogetherAlone.github.io/img/head.jpg" width="50%"> 
 </blockquote>
 <hr>
-<h2 id="Markdown-表格"><a href="#Markdown-表格" class="headerlink" title="Markdown 表格"></a>Markdown 表格</h2><h3 id="代码-7"><a href="#代码-7" class="headerlink" title="代码"></a>代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">| 左对齐 | 右对齐 | 居中对齐 |</span><br><span class="line">| :-----| ----: | :----: |</span><br><span class="line">| 单元格 | 单元格 | 单元格 |</span><br><span class="line">| 单元格 | 单元格 | 单元格 |</span><br></pre></td></tr></table></figure>
+<h2 id="Markdown-表格"><a href="#Markdown-表格" class="headerlink" title="Markdown 表格"></a>Markdown 表格</h2><h3 id="代码-7"><a href="#代码-7" class="headerlink" title="代码"></a>代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">| 左对齐 | 右对齐 | 居中对齐 |</span><br><span class="line">| :----- | -----: | :----: |</span><br><span class="line">| 单元格 | 单元格 | 单元格 |</span><br><span class="line">| 单元格 | 单元格 | 单元格 |</span><br></pre></td></tr></table></figure>
 <h3 id="结果-7"><a href="#结果-7" class="headerlink" title="结果"></a>结果</h3><blockquote>
 <table>
 <thead>
